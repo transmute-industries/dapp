@@ -1,4 +1,23 @@
 
+// Don't use localStorage in production!
+// https://stackoverflow.com/questions/37398427/redux-testing-referenceerror-localstorage-is-not-defined
+let localStorage: any = window.localStorage || (function () {
+  var store = {};
+  return {
+    getItem: function (key: string) {
+      return store[key];
+    },
+    setItem: function (key: string, value: any) {
+      store[key] = value.toString();
+    },
+    clear: function () {
+      store = {};
+    },
+    removeItem: function (key: string) {
+      delete store[key];
+    }
+  };
+})();
 
 const handlers = {
 
@@ -48,7 +67,7 @@ export const reducer = (state: any, action: any) => {
     return handlers[action.type](state, action)
   }
   return {
-    patientSummary: JSON.parse(<any>localStorage.getItem('patientSummary')) || {},
+    patientSummary: JSON.parse(<any>localStorage.getItem('patientSummary') || '{}') || {},
     defaultAddress: localStorage.getItem('defaultAddress') || null,
     selectedContract: localStorage.getItem('selectedContract') || null,
     addresses: null,

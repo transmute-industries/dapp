@@ -78,7 +78,7 @@ export default connect(
             provider: transmute.provider,
         },
         onSubmit: (data: any) => {
-            // console.log(data)
+            // console.debug(data)
             store.dispatch(updateWeb3Settings(data))
         }
     }),

@@ -1,16 +1,10 @@
-# Transmute Web App Starter Kit
+# Transmute dApp
 
 [![Build Status](https://travis-ci.org/transmute-industries/dapp.svg?branch=master)](https://travis-ci.org/transmute-industries/dapp)
 
-This project is under construction. 
-There is a lot of extraneous code, which is meant to be used for reference. 
+Create an issue if you want a feature or need help!
 
-
-## Dependencies
-
-- https://www.docker.com/
-- https://ipfs.io/docs/getting-started/
-
+Please fork and submit PRs, together we can make dApp dev transcendent!
 
 ### Run with docker
 
@@ -21,15 +15,18 @@ $ npm run docker:run
 
 - http://localhost:3000/dapp
 
+## Get Started Instructions
+
+- http://bit.ly/2uzpxVJ
 
 ### Run without docker
 ```
 $ git clone https://github.com/transmute-industries/dapp.git
 $ cd dapp
 $ npm install
-$ npm run transmute test
 $ npm run ipfs
 $ npm run testrpc
+$ npm run test
 $ npm run migrate
 $ npm run start
 ```

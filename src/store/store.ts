@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, Store} from 'redux';
+import { createStore, applyMiddleware, Store } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -10,17 +10,15 @@ const composeEnhancers = composeWithDevTools({});
 export const history = createBrowserHistory();
 const middleware = [routerMiddleware(history), thunk];
 
-
+// Here we should import our store type from types and use it!!
 function configureStore(): Store<any> {
-  const store = createStore(
+  return createStore(
     rootReducer,
     {},
     composeEnhancers(
       applyMiddleware(...middleware)
     )
   );
-
-  return store;
 }
 
 export const store = configureStore();

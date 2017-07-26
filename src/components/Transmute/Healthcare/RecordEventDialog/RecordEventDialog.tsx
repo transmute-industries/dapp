@@ -39,7 +39,7 @@ export class RecordEventDialog extends React.Component<any, any> {
         this.setState({ open: false });
     };
     componentWillReceiveProps(nextProps: any) {
-        // console.log('maybe props...', nextProps)
+        // console.debug('maybe props...', nextProps)
         if (nextProps.transmute &&
             nextProps.transmute.activeDialog &&
             nextProps.transmute.activeDialog.type

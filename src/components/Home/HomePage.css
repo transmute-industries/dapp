@@ -1,21 +1,14 @@
 
 .logo-c {
-    /*margin-top: 40%;*/
     margin:auto;
     width: 300px;
     height: 0px;
-    
 }
 
 .logo {
     margin-top: 40%;
     position: relative;
     width: 300px;
-    /*width: 75%;*/
-    /*opacity: 0.8; */
-   
-    /*padding: 64px;*/
-    /*background-color: rgba( 33,33,33, .85);*/
 }
 
 
@@ -23,26 +16,18 @@
     background-color: rgba( 33,33,33, .85);
     background-blend-mode: darken;  
     height: 100%;
-    /*position: fixed;*/
 }
 
 .cta-c {
-    /*background-color: rgba( 33,33,33, .85);
-    background-blend-mode: darken;  */
     bottom: 64px;
     position: absolute;
     color: #fff;
     left: 25%;
     right: 25%;
-    
-  
 }
 
 .cta {
     text-align: center;
-  /*margin-left: auto;
-    margin-right: auto;
-    width: 200px;*/
 }
 
 .btn-c {

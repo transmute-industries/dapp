@@ -74,7 +74,7 @@ export class EventStoreTable extends React.Component<any, any> {
     }
 
     if (nextProps.transmute.events) {
-      console.log('events', nextProps.transmute.events)
+      console.debug('events', nextProps.transmute.events)
       nextProps.transmute.events.forEach((event: any) => {
         data.push({
           type: event.type,
@@ -111,7 +111,7 @@ export class EventStoreTable extends React.Component<any, any> {
   }
 
   handleSortOrderChange(key: any, order: any) {
-    // console.log('key:' + key + ' order: ' + order)
+    // console.debug('key:' + key + ' order: ' + order)
     let data = _.sortBy(this.state.eventStores, [key])
     if (order === 'desc') {
       data.reverse()
@@ -122,7 +122,7 @@ export class EventStoreTable extends React.Component<any, any> {
   }
 
   handleFilterValueChange(value: any) {
-    // console.log('filter value: ' + value)
+    // console.debug('filter value: ' + value)
     let data = this.state.eventStores
     if (value !== '') {
       data = _.filter(data, _.matches({ 'contractAddress': value }))
@@ -160,7 +160,7 @@ export class EventStoreTable extends React.Component<any, any> {
   }
 
   handleRefresh() {
-    // console.log('handleRefresh')
+    // console.debug('handleRefresh')
     this.props.dispatch(readAllContractEvents(this.props.transmute.selectedContract, this.props.transmute.defaultAddress, 0))
   }
 
