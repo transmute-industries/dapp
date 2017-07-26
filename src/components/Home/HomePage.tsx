@@ -14,17 +14,21 @@ export default class HomePage extends React.Component<any, any> {
     render() {
         return (
             <Particle>
-                <div className='logo-c'>
-                    <img className='logo' src={logo} />
+                <div className="logo-c">
+                    <img className="logo" src={logo} />
                 </div>
-                <div className='cta-c'>
-                    <div className='cta'>
+                <div className="cta-c">
+                    <div className="cta">
                         <h4>Ethereum dApp</h4>
-                        <div className='btn-c'>
-                            <div className='material-btn'>
-                                <RaisedButton secondary label="Demo" onTouchTap={() => {
-                                    this.launchDemo('/dapp/healthcare');
-                                }} />
+                        <div className="btn-c">
+                            <div className="material-btn">
+                                <RaisedButton
+                                    secondary={true}
+                                    label="Demo"
+                                    onTouchTap={() => {
+                                        this.launchDemo('/dapp/healthcare');
+                                    }}
+                                />
                             </div>
                         </div>
                     </div>

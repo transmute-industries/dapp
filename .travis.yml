@@ -21,7 +21,7 @@ before_install:
 
 install:
   - npm install
-  - npm run testrpc
+  - npm run testrpc &
 
 script:
   - npm run test:all

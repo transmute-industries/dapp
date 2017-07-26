@@ -1,39 +1,40 @@
 import * as React from 'react';
-import * as moment from 'moment'
+import * as moment from 'moment';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
 
 import {
     writeFSA
-} from '../../../../actions/transmute'
+} from '../../../../actions/transmute';
 
 // import SelectSymptoms from '../SelectSymptoms/SelectSymptoms'
-import ReportTemperature from '../ReportTemperature/ReportTemperature'
+import ReportTemperature from '../ReportTemperature/ReportTemperature';
 
 const getPayload = (state: any) => {
     return state.dialogTitle === 'New Symptoms' ? state.symptoms : parseFloat(state.temperature);
-}
+};
 
 export class RecordEventDialog extends React.Component<any, any> {
     state = {
         dialogTitle: 'non',
-        dialogBody: <pre></pre>,
+        dialogBody: <pre />,
         dialogActions: [],
         open: false,
         symptoms: [],
         temperature: '98.7'
-    }
+    };
+
     handleOpen = () => {
         this.setState({ open: true });
-    };
+    }
     handleClose = () => {
         this.props.dispatch({
             type: 'RECORD_EVENT_DIALOG_UPDATE',
             payload: {}
-        })
+        });
         this.setState({ open: false });
-    };
+    }
     componentWillReceiveProps(nextProps: any) {
         if (nextProps.transmute &&
             nextProps.transmute.activeDialog &&
@@ -57,14 +58,18 @@ export class RecordEventDialog extends React.Component<any, any> {
                 default: recordDialogData = {
                     title: 'New Temperature',
                     payloadType: 'TEMPERATURE_REPORTED',
-                    el: < ReportTemperature
-                        value={this.state.temperature}
-                        onChange={(data: any) => {
-                            this.setState({
-                                temperature: data
-                            });
-                        }} style={{ width: '100%' }} />
-                }; break;
+                    el: (
+                        < ReportTemperature
+                            value={this.state.temperature}
+                            onChange={(data: any) => {
+                                this.setState({
+                                    temperature: data
+                                });
+                            }}
+                            style={{ width: '100%' }}
+                        />
+                    )
+                };
             }
 
             this.setState({
@@ -73,29 +78,36 @@ export class RecordEventDialog extends React.Component<any, any> {
                 dialogBody: recordDialogData.el,
                 dialogPayloadType: recordDialogData.payloadType,
                 dialogActions: [
-                    <FlatButton
-                        label="Cancel"
-                        primary={true}
-                        onTouchTap={this.handleClose}
-                    />,
-                    <FlatButton
-                        label="Submit"
-                        primary={true}
-                        keyboardFocused={true}
-                        onTouchTap={() => {
-                            let fsa: any = {
-                                type: recordDialogData.payloadType,
-                                payload: {
-                                    created: moment().format('LLL'),
-                                    data: getPayload(this.state)
-                                }
-                            };
-                            this.props.dispatch(writeFSA(this.props.transmute.selectedContract, this.props.transmute.defaultAddress, fsa));
-                            this.handleClose();
-                        }}
-                    />
+                    (
+                        <FlatButton
+                            label="Cancel"
+                            primary={true}
+                            onTouchTap={this.handleClose}
+                        />
+                    ),
+                    (
+                        <FlatButton
+                            label="Submit"
+                            primary={true}
+                            keyboardFocused={true}
+                            onTouchTap={() => {
+                                let fsa: any = {
+                                    type: recordDialogData.payloadType,
+                                    payload: {
+                                        created: moment().format('LLL'),
+                                        data: getPayload(this.state)
+                                    }
+                                };
+                                this.props.dispatch(writeFSA(
+                                    this.props.transmute.selectedContract,
+                                    this.props.transmute.defaultAddress, fsa)
+                                );
+                                this.handleClose();
+                            }}
+                        />
+                    )
                 ]
-            })
+            });
         }
     }
 
@@ -118,4 +130,4 @@ export class RecordEventDialog extends React.Component<any, any> {
 
 export default connect((state: any) => ({
     transmute: state.transmute
-}))(RecordEventDialog)
+}))(RecordEventDialog);
