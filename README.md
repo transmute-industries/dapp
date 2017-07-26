@@ -14,6 +14,8 @@ $ npm run docker:build
 $ npm run docker:run
 ```
 
+If you already had ipfs installed, you may need to `npm run ipfs:allow` this will add localhost:3000 to ipfs access control allow origin.
+
 - http://localhost:3000/dapp
 
 ## Get Started Instructions
