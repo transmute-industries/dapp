@@ -1,22 +1,18 @@
 import * as React from 'react';
 import * as moment from 'moment'
-
 import Dialog from 'material-ui/Dialog';
-
 import FlatButton from 'material-ui/FlatButton';
-
 import { connect } from 'react-redux';
 
 import {
-    //   readAllContractEvents,
     writeFSA
 } from '../../../../actions/transmute'
 
-import SelectSymptoms from '../SelectSymptoms/SelectSymptoms'
+// import SelectSymptoms from '../SelectSymptoms/SelectSymptoms'
 import ReportTemperature from '../ReportTemperature/ReportTemperature'
 
 const getPayload = (state: any) => {
-    return state.dialogTitle === 'New Symptoms' ? state.symptoms : parseFloat(state.temperature)
+    return state.dialogTitle === 'New Symptoms' ? state.symptoms : parseFloat(state.temperature);
 }
 
 export class RecordEventDialog extends React.Component<any, any> {
@@ -39,7 +35,6 @@ export class RecordEventDialog extends React.Component<any, any> {
         this.setState({ open: false });
     };
     componentWillReceiveProps(nextProps: any) {
-        // console.debug('maybe props...', nextProps)
         if (nextProps.transmute &&
             nextProps.transmute.activeDialog &&
             nextProps.transmute.activeDialog.type
@@ -47,18 +42,19 @@ export class RecordEventDialog extends React.Component<any, any> {
             let recordDialogData: any;
 
             switch (nextProps.transmute.activeDialog.type) {
-                case 'SYMPTOMS': recordDialogData = {
-                    title: 'New Symptoms',
-                    payloadType: 'SYMPTOMS_REPORTED',
-                    el: <SelectSymptoms values={this.state.symptoms}
-                        onChange={(data: any) => {
-                            this.setState({
-                                symptoms: data
-                            })
-                        }} style={{ width: '100%' }} />
-                }; break;
 
-                case 'TEMPERATURE': recordDialogData = {
+                // case 'SYMPTOMS': recordDialogData = {
+                //     title: 'New Symptoms',
+                //     payloadType: 'SYMPTOMS_REPORTED',
+                //     el: <SelectSymptoms values={this.state.symptoms}
+                //         onChange={(data: any) => {
+                //             this.setState({
+                //                 symptoms: data
+                //             });
+                //         }} style={{ width: '100%' }} />
+                // }; break;
+
+                default: recordDialogData = {
                     title: 'New Temperature',
                     payloadType: 'TEMPERATURE_REPORTED',
                     el: < ReportTemperature
@@ -66,7 +62,7 @@ export class RecordEventDialog extends React.Component<any, any> {
                         onChange={(data: any) => {
                             this.setState({
                                 temperature: data
-                            })
+                            });
                         }} style={{ width: '100%' }} />
                 }; break;
             }
@@ -93,9 +89,9 @@ export class RecordEventDialog extends React.Component<any, any> {
                                     created: moment().format('LLL'),
                                     data: getPayload(this.state)
                                 }
-                            }
-                            this.props.dispatch(writeFSA(this.props.transmute.selectedContract, this.props.transmute.defaultAddress, fsa))
-                            this.handleClose()
+                            };
+                            this.props.dispatch(writeFSA(this.props.transmute.selectedContract, this.props.transmute.defaultAddress, fsa));
+                            this.handleClose();
                         }}
                     />
                 ]

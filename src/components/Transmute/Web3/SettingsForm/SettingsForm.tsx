@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 // import { RadioButton } from 'material-ui/RadioButton'
@@ -17,21 +16,11 @@ import {
     //   Toggle
 } from 'redux-form-material-ui'
 
-
 import RaisedButton from 'material-ui/RaisedButton';
-
 import { store } from '../../../../store/store';
-
-import { updateWeb3Settings } from '../../../../actions/transmute'
-
+import { updateWeb3Settings } from '../../../../actions/transmute';
 
 export class FormComponent extends React.Component<any, any> {
-    //   componentDidMount() {
-    //     this.refs.name // the Field
-    //       .getRenderedComponent() // on Field, returns ReduxFormMaterialUITextField
-    //       .getRenderedComponent() // on ReduxFormMaterialUITextField, returns TextField
-    //       .focus() // on TextField
-    //   }
 
     render() {
 
@@ -43,9 +32,6 @@ export class FormComponent extends React.Component<any, any> {
                     <MenuItem value='infura' primaryText='Infura' />
                     <MenuItem value='parity' primaryText='Parity' />
                 </Field>
-                {/* <code>
-                    {JSON.stringify(this.props.transmute)}
-                </code> */}
 
                 <Field style={{ width: '100%' }} name='defaultAddress' component={SelectField} hintText='Select a default address'>
                     {
@@ -58,7 +44,7 @@ export class FormComponent extends React.Component<any, any> {
                 </Field>
 
                 <RaisedButton secondary label="Save" onTouchTap={async () => {
-                    this.props.handleSubmit()
+                    this.props.handleSubmit();
                 }} />
             </form>
         )
@@ -68,7 +54,7 @@ export class FormComponent extends React.Component<any, any> {
 const form = reduxForm({
     form: 'example',
     enableReinitialization: true
-})(FormComponent)
+})(FormComponent);
 
 export default connect(
     ({ transmute }) => ({
@@ -79,8 +65,8 @@ export default connect(
         },
         onSubmit: (data: any) => {
             // console.debug(data)
-            store.dispatch(updateWeb3Settings(data))
+            store.dispatch(updateWeb3Settings(data));
         }
     }),
-)(form) as any
+)(form) as any;
 

@@ -20,7 +20,7 @@ export default class TemperatureTextField extends React.Component<any, any> {
             this.setState({
               value: event.target.value,
             });
-            this.props.onChange(event.target.value)
+            this.props.onChange(event.target.value);
           }}
         />
       </div>

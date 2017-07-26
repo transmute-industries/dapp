@@ -30,3 +30,10 @@ $ npm run test
 $ npm run migrate
 $ npm run start
 ```
+
+### Features
+
+- Docker with React Hot Module Reload!
+- Jest and Truffle Tests
+- TypeScript
+- Redux + Transmute Framework (Redux for Smart Contracts)

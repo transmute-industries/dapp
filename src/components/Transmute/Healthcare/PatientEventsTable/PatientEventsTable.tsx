@@ -10,7 +10,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
 import AddTemp from 'material-ui/svg-icons/places/hot-tub'
-import AddSymp from 'material-ui/svg-icons/places/beach-access'
+// import AddSymp from 'material-ui/svg-icons/places/beach-access'
 
 import { connect } from 'react-redux'
 
@@ -50,10 +50,6 @@ const TABLE_COLUMNS_SORT_STYLE = [
     label: 'Type',
     sortable: true,
   },
-  // {
-  //   key: 'txOrigin',
-  //   label: 'Creator',
-  // },
   {
     key: 'created',
     label: 'Created',
@@ -70,7 +66,7 @@ export class EventStoreTable extends React.Component<any, any> {
     let data: any = []
 
     if (!nextProps.transmute.events && nextProps.transmute.selectedContract) {
-      this.props.dispatch(readAllContractEvents(this.props.transmute.selectedContract, this.props.transmute.defaultAddress, 0))
+      this.props.dispatch(readAllContractEvents(nextProps.transmute.selectedContract, this.props.transmute.defaultAddress, 0))
     }
 
     if (nextProps.transmute.events) {
@@ -78,7 +74,6 @@ export class EventStoreTable extends React.Component<any, any> {
       nextProps.transmute.events.forEach((event: any) => {
         data.push({
           type: event.type,
-          // contractAddress: key,
           payload: event.payload,
           txOrigin: event.meta.txOrigin,
           created: moment.unix(event.meta.created).format('LLL')
@@ -111,7 +106,6 @@ export class EventStoreTable extends React.Component<any, any> {
   }
 
   handleSortOrderChange(key: any, order: any) {
-    // console.debug('key:' + key + ' order: ' + order)
     let data = _.sortBy(this.state.eventStores, [key])
     if (order === 'desc') {
       data.reverse()
@@ -122,7 +116,6 @@ export class EventStoreTable extends React.Component<any, any> {
   }
 
   handleFilterValueChange(value: any) {
-    // console.debug('filter value: ' + value)
     let data = this.state.eventStores
     if (value !== '') {
       data = _.filter(data, _.matches({ 'contractAddress': value }))
@@ -160,7 +153,6 @@ export class EventStoreTable extends React.Component<any, any> {
   }
 
   handleRefresh() {
-    // console.debug('handleRefresh')
     this.props.dispatch(readAllContractEvents(this.props.transmute.selectedContract, this.props.transmute.defaultAddress, 0))
   }
 
@@ -204,13 +196,14 @@ export class EventStoreTable extends React.Component<any, any> {
               >
                 <AddTemp />
               </IconButton>,
-              <IconButton
+              /* <IconButton
                 onClick={() => {
                   this.handleRecord('SYMPTOMS')
                 }}
               >
                 <AddSymp />
-              </IconButton>,
+              </IconButton> */
+              ,
               <IconButton
                 onClick={this.handleRefresh}
               >
@@ -237,4 +230,4 @@ export class EventStoreTable extends React.Component<any, any> {
 
 export default connect((state: any) => ({
   transmute: state.transmute
-}))(EventStoreTable)
+}))(EventStoreTable) as any;

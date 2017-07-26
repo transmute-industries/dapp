@@ -4,12 +4,12 @@ import './HomePage.css';
 import RaisedButton from 'material-ui/RaisedButton';
 import { push } from 'react-router-redux';
 import { store } from '../../store/store';
-const logo = require('../../images/logo-white.png')
+const logo = require('../../images/logo-white.png');
 
 export default class HomePage extends React.Component<any, any> {
     launchDemo(path: string) {
-        console.debug(path)
-        store.dispatch(push(path))
+        console.debug(path);
+        store.dispatch(push(path));
     }
     render() {
         return (

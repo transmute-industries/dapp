@@ -8,7 +8,7 @@ export class PatientSummaryCard extends React.Component<any, any> {
 
     render() {
         return (
-            <Card>
+            <Card style={{marginTop: '16px', marginBottom: '16px'}}>
                 <CardTitle>
                     Read Model
                 </CardTitle>
@@ -25,4 +25,4 @@ export class PatientSummaryCard extends React.Component<any, any> {
 
 export default connect((state: any) => ({
     transmute: state.transmute
-}))(PatientSummaryCard)
+}))(PatientSummaryCard) as any;

@@ -31,4 +31,4 @@ class HealthcareDemo extends React.Component<any, any> {
 export default connect((state: any) => ({
   transmute: state.transmute,
   router: state.router
-}))(HealthcareDemo)
+}))(HealthcareDemo);
