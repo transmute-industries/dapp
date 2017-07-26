@@ -25,7 +25,7 @@ export class SelectEventStoreCard extends React.Component<any, any> {
             <Card>
                 <CardTitle>
                     Event Store
-                     <RaisedButton
+                    <RaisedButton
                         style={{ float: 'right' }}
                         label="New Store"
                         secondary={true}
@@ -52,8 +52,8 @@ export class SelectEventStoreCard extends React.Component<any, any> {
                         style={{ width: '100%' }}
                     >
                         {
-                            this.props.transmute.RBACFactory && 
-                            this.props.transmute.RBACFactory.model && 
+                            this.props.transmute.RBACFactory &&
+                            this.props.transmute.RBACFactory.model &&
                             Object.keys(this.props.transmute.RBACFactory.model).map((address: string) => {
                                 return (
                                     <MenuItem key={address} value={address} primaryText={address} />

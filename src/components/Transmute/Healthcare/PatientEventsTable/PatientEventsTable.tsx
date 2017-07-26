@@ -91,7 +91,6 @@ export class EventStoreTable extends React.Component<any, any> {
     });
   }
 
-
   constructor(props: any, context: any) {
     super(props, context);
     this.handleSortOrderChange = this.handleSortOrderChange.bind(this);

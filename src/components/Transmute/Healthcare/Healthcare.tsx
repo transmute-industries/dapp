@@ -10,7 +10,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 class HealthcareDemo extends React.Component<any, any> {
   render() {
     return (
-      <div className='material-demo' >
+      <div className="material-demo" >
         <HealthcareAppBar />
         <Grid fluid={true} style={{ marginTop: '32px' }}>
           <Row >
