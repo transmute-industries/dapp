@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  testrpc:
+    build: ./testrpc
+    ports:
+      - "8545:8545"
+
+  ipfs:
+    build: ./ipfs
+    ports:
+     - "8080:8080"
+     - "5001:5001"
+     - "4001:4001"
+    volumes:
+      - ~/.ipfs/:/data/ipfs/
+    
+  dapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+     - ./src:/usr/src/app/src
+    links:
+     - ipfs
+     - testrpc
