@@ -7,6 +7,8 @@ Create an issue if you want a feature or need help!
 
 Please fork and submit PRs, together we can make dApp dev transcendent!
 
+You will need to install NodeJS - https://nodejs.org/en/
+
 ### Run with docker
 
 ```
