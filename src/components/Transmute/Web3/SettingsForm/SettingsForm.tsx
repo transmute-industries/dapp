@@ -51,7 +51,7 @@ export class FormComponent extends React.Component<any, any> {
                 <RaisedButton
                     secondary={true}
                     label="Save"
-                    onTouchTap={async () => {
+                    onTouchTap={() => {
                         this.props.handleSubmit();
                     }}
                 />
