@@ -1,13 +1,7 @@
-
-
 import TransmuteFramework from '../../../../../src/transmute';
-
 let { PatchLogic } = TransmuteFramework;
-
 import { hasFever } from './PatientSumaryLogic';
-
 const handlers = {
-
     ['TEMPERATURE_REPORTED']: (state: any, action: any) => {
         return {
             ...state,
@@ -15,8 +9,7 @@ const handlers = {
                 ...state.model,
                 lastTemperature: action.payload.data,
             }
-
-        }
+        };
     },
     // ['SYMPTOMS_REPORTED']: (state: any, action: any) => {
     //     return {
@@ -27,8 +20,7 @@ const handlers = {
     //         }
     //     }
     // }
-
-}
+};
 
 export const readModel = {
     readModelStoreKey: '', // readModelType:contractAddress
@@ -56,5 +48,4 @@ export const reducer = (state: any, action: any) => {
     };
     state.model.hasFever = PatchLogic.applyJsonLogic(hasFever, stateWithThresholds);
     return state;
-}
-
+};

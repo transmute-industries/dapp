@@ -9,9 +9,9 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import Drawer from 'material-ui/Drawer';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-import { push } from 'react-router-redux'
+import { push } from 'react-router-redux';
 
 import { store } from '../../../../store/store';
 
@@ -19,9 +19,13 @@ class Login extends React.Component {
   static muiName = 'FlatButton';
   render() {
     return (
-      <FlatButton {...this.props} label="Login" onTouchTap={() => {
-      store.dispatch(push('/dapp/uport'))
-    }}  />
+      <FlatButton
+        {...this.props}
+        label="Login"
+        onTouchTap={() => {
+          store.dispatch(push('/dapp/uport'));
+        }}
+      />
     );
   }
 }
@@ -34,9 +38,12 @@ const Logged: any = (props: any) => (
     targetOrigin={{ horizontal: 'right', vertical: 'top' }}
     anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
   >
-    <MenuItem primaryText="Sign out" onTouchTap={() => {
-      store.dispatch(push('/dapp/uport'))
-    }} />
+    <MenuItem
+      primaryText="Sign out"
+      onTouchTap={() => {
+        store.dispatch(push('/dapp/uport'));
+      }}
+    />
   </IconMenu>
 );
 
@@ -49,11 +56,11 @@ class HealthcareAppBar extends React.Component<any, any> {
   };
   handleChange = (event: any, logged: any) => {
     this.setState({ logged: logged });
-  };
+  }
   handleToggle = () => this.setState({ open: !this.state.open });
 
   handleTitleTouch = () => {
-
+    // do nothing
   }
   render() {
     return (
@@ -65,12 +72,20 @@ class HealthcareAppBar extends React.Component<any, any> {
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />
         <Drawer open={this.state.open} docked={false} onRequestChange={(open) => this.setState({ open })}>
-          <MenuItem onTouchTap={() => {
-            store.dispatch(push('/dapp/'))
-          }}>Home</MenuItem>
-          <MenuItem onTouchTap={() => {
-            store.dispatch(push('/dapp/web3'))
-          }}>Web3</MenuItem>
+          <MenuItem
+            onTouchTap={() => {
+              store.dispatch(push('/dapp/'));
+            }}
+          >
+            Home
+          </MenuItem>
+          <MenuItem
+            onTouchTap={() => {
+              store.dispatch(push('/dapp/web3'));
+            }}
+          >
+            Web3
+          </MenuItem>
           <Toggle
             label="Fake Login"
             defaultToggled={true}
@@ -87,4 +102,4 @@ class HealthcareAppBar extends React.Component<any, any> {
 
 export default connect((state: any) => ({
   transmute: state.transmute
-}))(HealthcareAppBar)
+}))(HealthcareAppBar);

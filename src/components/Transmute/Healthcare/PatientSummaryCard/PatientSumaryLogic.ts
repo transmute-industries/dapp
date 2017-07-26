@@ -1,15 +1,15 @@
 
 export const hasFever = {
-    "and": [
+    'and': [
         {
-            ">": [
+            '>': [
                 {
-                    "var": "model.lastTemperature"
+                    'var': 'model.lastTemperature'
                 },
                 {
-                    "var": "model.feverThreshold"
+                    'var': 'model.feverThreshold'
                 }
             ]
         }
     ]
-}
+};

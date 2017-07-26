@@ -1,23 +1,22 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-import * as moment from 'moment'
+import * as moment from 'moment';
 
-import { Card } from 'material-ui/Card'
-import IconButton from 'material-ui/IconButton'
+import { Card } from 'material-ui/Card';
+import IconButton from 'material-ui/IconButton';
 
-import NavigationRefresh from 'material-ui/svg-icons/navigation/refresh'
+import NavigationRefresh from 'material-ui/svg-icons/navigation/refresh';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
-import AddTemp from 'material-ui/svg-icons/places/hot-tub'
+import AddTemp from 'material-ui/svg-icons/places/hot-tub';
 // import AddSymp from 'material-ui/svg-icons/places/beach-access'
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 import {
   readAllContractEvents
-} from '../../../../actions/transmute'
-
+} from '../../../../actions/transmute';
 
 const styles = {
   container: {
@@ -42,7 +41,7 @@ const styles = {
   tableWrapperStyle: {
     padding: 5,
   },
-}
+};
 
 const TABLE_COLUMNS_SORT_STYLE = [
   {
@@ -55,45 +54,50 @@ const TABLE_COLUMNS_SORT_STYLE = [
     label: 'Created',
   },
 
-]
+];
 
-import DataTables from 'material-ui-datatables'
-import RecordEventDialog from '../RecordEventDialog/RecordEventDialog'
+import DataTables from 'material-ui-datatables';
+import RecordEventDialog from '../RecordEventDialog/RecordEventDialog';
 
 export class EventStoreTable extends React.Component<any, any> {
 
+  eventStores: any;
+
   componentWillReceiveProps(nextProps: any) {
-    let data: any = []
+    let data: any = [];
 
     if (!nextProps.transmute.events && nextProps.transmute.selectedContract) {
-      this.props.dispatch(readAllContractEvents(nextProps.transmute.selectedContract, this.props.transmute.defaultAddress, 0))
+      this.props.dispatch(
+        readAllContractEvents(
+          nextProps.transmute.selectedContract,
+          this.props.transmute.defaultAddress,
+          0)
+      );
     }
 
     if (nextProps.transmute.events) {
-      console.debug('events', nextProps.transmute.events)
+      console.debug('events', nextProps.transmute.events);
       nextProps.transmute.events.forEach((event: any) => {
         data.push({
           type: event.type,
           payload: event.payload,
           txOrigin: event.meta.txOrigin,
           created: moment.unix(event.meta.created).format('LLL')
-        })
-      })
+        });
+      });
     }
     this.setState({
       data: data
-    })
+    });
   }
 
-  public eventStores: any;
-
   constructor(props: any, context: any) {
-    super(props, context)
-    this.handleSortOrderChange = this.handleSortOrderChange.bind(this)
-    this.handleFilterValueChange = this.handleFilterValueChange.bind(this)
-    this.handleRowSelection = this.handleRowSelection.bind(this)
-    this.handleRecord = this.handleRecord.bind(this)
-    this.handleRefresh = this.handleRefresh.bind(this)
+    super(props, context);
+    this.handleSortOrderChange = this.handleSortOrderChange.bind(this);
+    this.handleFilterValueChange = this.handleFilterValueChange.bind(this);
+    this.handleRowSelection = this.handleRowSelection.bind(this);
+    this.handleRecord = this.handleRecord.bind(this);
+    this.handleRefresh = this.handleRefresh.bind(this);
 
     this.eventStores = []; // this.state.eventStores
     this.state = {
@@ -102,45 +106,49 @@ export class EventStoreTable extends React.Component<any, any> {
       page: 1,
       open: false,
       symptoms: []
-    }
+    };
   }
 
   handleSortOrderChange(key: any, order: any) {
-    let data = _.sortBy(this.state.eventStores, [key])
+    let data = _.sortBy(this.state.eventStores, [key]);
     if (order === 'desc') {
-      data.reverse()
+      data.reverse();
     }
     this.setState({
       data: data
-    })
+    });
   }
 
   handleFilterValueChange(value: any) {
-    let data = this.state.eventStores
+    let data = this.state.eventStores;
     if (value !== '') {
-      data = _.filter(data, _.matches({ 'contractAddress': value }))
+      data = _.filter(data, _.matches({ 'contractAddress': value }));
     }
     this.setState({
       data: data
-    })
+    });
   }
 
   handleRowSelection(selectedRows: any) {
-    let selectedModel = this.state.data[selectedRows]
+    let selectedModel = this.state.data[selectedRows];
     this.setState({
       dialogTitle: 'Event',
-      dialogBody: <pre>
-        {JSON.stringify(selectedModel, null, 2)}
-      </pre>,
+      dialogBody: (
+        <pre>
+          {JSON.stringify(selectedModel, null, 2)}
+        </pre>
+      ),
       dialogActions: [
-        <FlatButton
-          label="Cancel"
-          primary={true}
-          onTouchTap={this.handleClose}
-        />
+        (
+          <FlatButton
+            label="Cancel"
+            primary={true}
+            onTouchTap={this.handleClose}
+          />
+        )
       ]
-    })
-    this.handleOpen()
+    });
+    this.handleOpen();
   }
 
   handleRecord(type: string) {
@@ -149,20 +157,25 @@ export class EventStoreTable extends React.Component<any, any> {
       payload: {
         type: type
       }
-    })
+    });
   }
 
   handleRefresh() {
-    this.props.dispatch(readAllContractEvents(this.props.transmute.selectedContract, this.props.transmute.defaultAddress, 0))
+    this.props.dispatch(
+      readAllContractEvents(
+        this.props.transmute.selectedContract,
+        this.props.transmute.defaultAddress,
+        0)
+    );
   }
 
   handleOpen = () => {
     this.setState({ open: true });
-  };
+  }
 
   handleClose = () => {
     this.setState({ open: false });
-  };
+  }
   render() {
 
     return (
@@ -187,11 +200,9 @@ export class EventStoreTable extends React.Component<any, any> {
             onFilterValueChange={this.handleFilterValueChange}
             onSortOrderChange={this.handleSortOrderChange}
             toolbarIconRight={[
-
-
               <IconButton
                 onClick={() => {
-                  this.handleRecord('TEMPERATURE')
+                  this.handleRecord('TEMPERATURE');
                 }}
               >
                 <AddTemp />
@@ -224,7 +235,7 @@ export class EventStoreTable extends React.Component<any, any> {
         </Card>
 
       </div>
-    )
+    );
   }
 }
 

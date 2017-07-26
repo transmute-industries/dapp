@@ -1,8 +1,6 @@
 import * as React from 'react';
-
-import { Card, CardTitle, CardText } from 'material-ui/Card'
-
-import { connect } from 'react-redux'
+import { Card, CardTitle, CardText } from 'material-ui/Card';
+import { connect } from 'react-redux';
 
 export class PatientSummaryCard extends React.Component<any, any> {
 
@@ -20,7 +18,6 @@ export class PatientSummaryCard extends React.Component<any, any> {
             </Card>
         );
     }
-
 }
 
 export default connect((state: any) => ({
