@@ -20,7 +20,7 @@ class Login extends React.Component {
   render() {
     return (
       <FlatButton {...this.props} label="Login" onTouchTap={() => {
-      store.dispatch(push('/web-app-starter-kit/uport'))
+      store.dispatch(push('/dapp/uport'))
     }}  />
     );
   }
@@ -35,7 +35,7 @@ const Logged: any = (props: any) => (
     anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
   >
     <MenuItem primaryText="Sign out" onTouchTap={() => {
-      store.dispatch(push('/web-app-starter-kit/uport'))
+      store.dispatch(push('/dapp/uport'))
     }} />
   </IconMenu>
 );
@@ -66,10 +66,10 @@ class HealthcareAppBar extends React.Component<any, any> {
         />
         <Drawer open={this.state.open} docked={false} onRequestChange={(open) => this.setState({ open })}>
           <MenuItem onTouchTap={() => {
-            store.dispatch(push('/web-app-starter-kit/'))
+            store.dispatch(push('/dapp/'))
           }}>Home</MenuItem>
           <MenuItem onTouchTap={() => {
-            store.dispatch(push('/web-app-starter-kit/web3'))
+            store.dispatch(push('/dapp/web3'))
           }}>Web3</MenuItem>
           <Toggle
             label="Fake Login"

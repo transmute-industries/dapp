@@ -38,14 +38,14 @@ export default class HomePage extends React.Component<any, any> {
                             {/* <div className='bootstrap-btn'>
                                 <Button style={{ cursor: 'pointer' }} color='info'
                                     onClick={() => {
-                                        this.launchDemo('/web-app-starter-kit/bootstrap');
+                                        this.launchDemo('/dapp/bootstrap');
                                     }}
                                 >Bootstrap</Button>
                             </div> */}
                             <div className='material-btn'>
                                 <MuiThemeProvider muiTheme={lightMuiTheme}>
                                     <RaisedButton secondary label="Demo" onTouchTap={() => {
-                                        this.launchDemo('/web-app-starter-kit/healthcare');
+                                        this.launchDemo('/dapp/healthcare');
                                     }} />
                                 </MuiThemeProvider>
                             </div>

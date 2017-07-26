@@ -46,13 +46,13 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <MuiThemeProvider muiTheme={lightMuiTheme}>
         <div>
-          <Route exact={true} path="/web-app-starter-kit/" component={HomePage} />
-          <Route path="/web-app-starter-kit/web3" component={Web3Settings} />
+          <Route exact={true} path="/dapp/" component={HomePage} />
+          <Route path="/dapp/web3" component={Web3Settings} />
 
-          <Route path="/web-app-starter-kit/healthcare" component={HealthcareDemo} />
-          <Route path="/web-app-starter-kit/uport" component={UPortRegister} />
+          <Route path="/dapp/healthcare" component={HealthcareDemo} />
+          <Route path="/dapp/uport" component={UPortRegister} />
 
-          {/* <Redirect from='*' to='/web-app-starter-kit/' /> */}
+          {/* <Redirect from='*' to='/dapp/' /> */}
         </div>
       </MuiThemeProvider>
     </ConnectedRouter>

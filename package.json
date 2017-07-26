@@ -1,8 +1,8 @@
 {
-  "name": "web-app-starter-kit",
+  "name": "dapp",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://transmute-industries.github.io/web-app-starter-kit/",
+  "homepage": "https://transmute-industries.github.io/dapp/",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "classnames": "^2.2.5",
@@ -50,7 +50,7 @@
   "scripts": {
     "clean": "rm -rf build coverage",
     "docker:build": "docker-compose up --build",
-    "docker:start": "truffle migrate && npm run move-contracts && npm run start",
+    "docker:start": "docker-compose up",
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build && npm run prep-for-github",
     "prep-for-github": "cp build/index.html build/404.html",
