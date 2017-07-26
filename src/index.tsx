@@ -30,7 +30,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <MuiThemeProvider muiTheme={lightMuiTheme}>
-        <div>
+        <div style={{height: '100%'}}>
           <Route exact={true} path="/dapp/" component={HomePage} />
           <Route path="/dapp/web3" component={Web3Settings} />
 
