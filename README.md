@@ -5,12 +5,22 @@
 
 Create an issue if you want a feature or need help!
 
-Please fork and submit PRs, together we can make dApp dev transcendent!
+Please fork and submit PRs!
 
-### Run with docker
+## Docker
+
+- Linux: https://docs.docker.com/engine/admin/#start-the-daemon-using-operating-system-utilities
+- OSX / Windows: Make sure docker daemon is running!
+
+### Build and run (slow)
 
 ```
 $ npm run docker:build
+```
+
+### Just run
+
+```
 $ npm run docker:run
 ```
 
@@ -21,9 +31,13 @@ $ npm run docker:run
 - http://bit.ly/2uzpxVJ
 
 ### Run without docker
+
+You will need to install https://ipfs.io/ & https://nodejs.org/en/
+
 ```
 $ git clone https://github.com/transmute-industries/dapp.git
 $ cd dapp
+$ npm install -g truffle ethereumjs-testrpc
 $ npm install
 $ npm run ipfs
 $ npm run testrpc

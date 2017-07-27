@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter, } from 'react-router-redux';
-import { Route } from 'react-router';
+import { Route, Redirect } from 'react-router';
 // https://github.com/zilverline/react-tap-event-plugin
 import * as injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
@@ -30,14 +30,12 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <MuiThemeProvider muiTheme={lightMuiTheme}>
-        <div style={{height: '100%'}}>
+        <div style={{ height: '100%' }}>
           <Route exact={true} path="/dapp/" component={HomePage} />
           <Route path="/dapp/web3" component={Web3Settings} />
-
           <Route path="/dapp/healthcare" component={HealthcareDemo} />
           <Route path="/dapp/uport" component={UPortRegister} />
-
-          {/* <Redirect from='*' to='/dapp/' /> */}
+          <Redirect from="*" to="/dapp/" />
         </div>
       </MuiThemeProvider>
     </ConnectedRouter>

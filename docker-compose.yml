@@ -12,8 +12,10 @@ services:
      - "8080:8080"
      - "5001:5001"
      - "4001:4001"
-    volumes:
-      - ~/.ipfs/:/data/ipfs/
+    #  Uncomment this if you want to persist your IPFS data locally
+    #  Otherwise it will always be a new instance (no persistence)
+    # volumes:
+    #   - ~/.ipfs/:/data/ipfs/
     
   dapp:
     build:
