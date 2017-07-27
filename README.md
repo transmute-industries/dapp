@@ -7,27 +7,28 @@ Create an issue if you want a feature or need help!
 
 Please fork and submit PRs!
 
-## Docker
 You will need to install NodeJS - https://nodejs.org/en/
 
-### Run with docker
+
+## Docker
 
 - Linux: https://docs.docker.com/engine/admin/#start-the-daemon-using-operating-system-utilities
 - OSX / Windows: Make sure docker daemon is running!
 
+### Just run
+```
+$ docker-compose up
+
+```
 ### Build and run (slow)
 
 ```
-$ npm run docker:build
-```
-
-### Just run
-
-```
-$ npm run docker:run
+$ docker-compose up --build
 ```
 
 If you already had ipfs installed, you may need to `npm run ipfs:allow` this will add localhost:3000 to ipfs access control allow origin.
+
+If everything works, the app will be available at:
 
 - http://localhost:3000/dapp
 
