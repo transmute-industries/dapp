@@ -21,6 +21,5 @@ install:
   - testrpc &
 
 script:
-  - npm run test
-  - truffle test
+  - npm run test:all
   - npm run report-coverage

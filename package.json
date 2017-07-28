@@ -59,13 +59,14 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "transmute": "node ./node_modules/transmute-framework/build/cli/index.js",
-    "test:all": "RPC_HOST=localhost npm run test && RPC_HOST=localhost truffle test",
+    "truffle:test": "truffle test",
     "testrpc": "pm2 start testrpc",
     "report-coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "move-contracts": "rm -rf src/contracts && mv build/contracts src/contracts",
     "migrate": "RPC_HOST=localhost npm run transmute migrate && npm run move-contracts",
     "ipfs:allow": "ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[\"http://localhost:3000\"]'",
-    "ipfs": "npm run ipfs:allow && ipfs daemon"
+    "ipfs": "npm run ipfs:allow && ipfs daemon",
+    "test:all": "npm run test && npm run truffle test"
   },
   "jest": {
     "collectCoverageFrom": [

@@ -12,4 +12,4 @@ RUN rm -rf node_modules src/contracts
 RUN npm install 
 RUN npm install -g truffle
 
-CMD truffle migrate && npm run move-contracts && npm start
+CMD RPC_HOST=testrpc truffle migrate && npm run move-contracts && npm start
