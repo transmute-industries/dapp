@@ -18,10 +18,8 @@ You will need to install NodeJS - https://nodejs.org/en/
 ### Just run
 ```
 $ docker-compose up
-
 ```
 ### Build and run (slow)
-
 ```
 $ docker-compose up --build
 ```
