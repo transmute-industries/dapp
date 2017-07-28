@@ -9,7 +9,7 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 RUN rm -rf node_modules src/contracts
-RUN npm install 
 RUN npm install -g truffle
+RUN npm install 
 
 CMD RPC_HOST=testrpc truffle migrate && npm run move-contracts && npm start
