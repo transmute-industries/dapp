@@ -60,7 +60,7 @@
     "deploy": "gh-pages -d build",
     "transmute": "node ./node_modules/transmute-framework/build/cli/index.js",
     "test:all": "RPC_HOST=localhost npm run test && RPC_HOST=localhost truffle test",
-    "testrpc": "pm2 testrpc",
+    "testrpc": "pm2 start testrpc",
     "report-coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "move-contracts": "rm -rf src/contracts && mv build/contracts src/contracts",
     "migrate": "RPC_HOST=localhost npm run transmute migrate && npm run move-contracts",
