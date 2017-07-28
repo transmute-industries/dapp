@@ -20,9 +20,11 @@ before_install:
   - sleep 5
 
 install:
+  - npm install -g truffle
   - npm install
-  - npm run testrpc &
+  - npm run testrpc
 
 script:
-  - npm run test:all
+  - npm run test
+  - truffle test
   - npm run report-coverage
