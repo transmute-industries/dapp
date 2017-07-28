@@ -9,6 +9,10 @@ Please fork and submit PRs!
 
 You will need to install NodeJS - https://nodejs.org/en/
 
+### Austin Ethereum Meetup 
+
+- [Slides](https://docs.google.com/presentation/d/1LCgV4OQGAY7fFU1kpY4ZHmqO0c0o7MNXWPNZoTjCdJc/edit#slide=id.g23ff527f6a_0_238)
+- [Video](https://www.youtube.com/watch?v=vYjkoFVoBSQ)
 
 ## Docker
 
@@ -30,9 +34,6 @@ If everything works, the app will be available at:
 
 - http://localhost:3000/dapp
 
-## Get Started Instructions
-
-- http://bit.ly/2uzpxVJ
 
 ### Run without docker
 
