@@ -66,7 +66,7 @@
     "migrate": "RPC_HOST=localhost npm run transmute migrate && npm run move-contracts",
     "ipfs:allow": "ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[\"http://localhost:3000\"]'",
     "ipfs": "npm run ipfs:allow && ipfs daemon",
-    "test:all": "npm run test && npm run truffle test"
+    "test:all": "npm run test && npm run truffle:test"
   },
   "jest": {
     "collectCoverageFrom": [
