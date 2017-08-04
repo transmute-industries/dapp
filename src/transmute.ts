@@ -1,7 +1,7 @@
 import TransmuteFramework from 'transmute-framework';
 
 let config: any = {
-    env: 'infura',
+    env: 'metamask',
     ipfsConfig: {
         host: 'ipfs.infura.io',
         port: '5001',

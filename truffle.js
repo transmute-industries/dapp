@@ -2,6 +2,9 @@
 
 const LightWalletProvider = require('@digix/truffle-lightwallet-provider')
 
+// Use this to monitor your deployment
+// https://ropsten.etherscan.io/address/0x657bf3087fce4fb72bd60ce732f012f27bc6fb9c
+
 module.exports = {
   networks: {
     development: {
@@ -9,7 +12,7 @@ module.exports = {
       port: 8545,
       network_id: "*" // Match any network id
     },
-    ropsten: {
+    "ropsten": {
       provider: new LightWalletProvider({
         keystore: './sigmate-v3-ti.json',
         password: process.env.PASSWORD,
