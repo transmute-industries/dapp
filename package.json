@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://transmute-industries.github.io/dapp/",
   "dependencies": {
+    "@digix/truffle-lightwallet-provider": "^0.1.2",
     "classnames": "^2.2.5",
     "history": "^4.6.3",
     "lodash": "^4.17.4",
@@ -85,17 +86,18 @@
     "build": "node scripts/build.js && npm run prep-for-github",
     "prep-for-github": "cp build/index.html build/404.html",
     "test": "node scripts/test.js --env=jsdom --coverage",
+    "test:all": "npm run test && npm run truffle:test",
+    "truffle:test": "truffle test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "deploy:testnet": "truffle migrate --compile-all --network ropsten --reset --verbose-rpc",
     "transmute": "node ./node_modules/transmute-framework/build/cli/index.js",
-    "truffle:test": "truffle test",
     "testrpc": "pm2 start testrpc",
     "report-coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "move-contracts": "rm -rf src/contracts && mv build/contracts src/contracts",
     "migrate": "RPC_HOST=localhost npm run transmute migrate && npm run move-contracts",
     "ipfs:allow": "ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[\"http://localhost:3000\"]'",
-    "ipfs": "npm run ipfs:allow && ipfs daemon",
-    "test:all": "npm run test && npm run truffle:test"
+    "ipfs": "npm run ipfs:allow && ipfs daemon"
   },
   "jest": {
     "mapCoverage": true,
