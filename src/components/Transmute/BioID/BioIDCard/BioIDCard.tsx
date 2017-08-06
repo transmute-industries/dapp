@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import {
-    createEventStore,
-} from '../../../../actions/transmute';
+    enroll,
+} from '../../../../store/bioid/actions';
 
 export class BioIDCard extends React.Component<any, any> {
     state = {
@@ -32,25 +32,26 @@ export class BioIDCard extends React.Component<any, any> {
                         label="Enroll"
                         onTouchTap={() => {
                             this.props.dispatch(
-                                createEventStore(this.props.transmute.defaultAddress)
+                              enroll()
                             );
+                            {/* createEventStore(this.props.transmute.defaultAddress) */}
                         }}
                     />
                     <RaisedButton
                         label="Verify"
                         onTouchTap={() => {
-                            this.props.dispatch(
-                                createEventStore(this.props.transmute.defaultAddress)
-                            );
+                            {/* this.props.dispatch(
+                            
+                            ); */}
                         }}
                     />
                     <RaisedButton
                         label="Identify"
                        
                         onTouchTap={() => {
-                            this.props.dispatch(
-                                createEventStore(this.props.transmute.defaultAddress)
-                            );
+                            {/* this.props.dispatch(
+                               
+                            ); */}
                         }}
                     />
                 </CardActions>
