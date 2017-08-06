@@ -100,6 +100,14 @@ export const updateWeb3Settings = (formModel: any) => (dispatch: any) => {
     });
 };
 
+export const UNSAFE_updateLightWallet = (walletModel: any) => (dispatch: any) => {
+    updateLocalStorage(walletModel);
+    dispatch({
+        type: 'UNSAFE_LIGHT_WALLET_UPDATED',
+        payload: walletModel
+    });
+};
+
 export const updateSelectedContract = (
     address: any,
     fromAddress: string

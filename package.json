@@ -5,7 +5,9 @@
   "homepage": "https://transmute-industries.github.io/dapp/",
   "dependencies": {
     "@digix/truffle-lightwallet-provider": "^0.1.2",
+    "bip39": "^2.3.1",
     "classnames": "^2.2.5",
+    "ethereumjs-wallet": "^0.6.0",
     "history": "^4.6.3",
     "lodash": "^4.17.4",
     "material-ui": "^0.18.6",

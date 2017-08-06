@@ -7,7 +7,7 @@ import MenuItem from 'material-ui/MenuItem';
 import {
     updateSelectedContract,
     createEventStore,
-} from '../../../../actions/transmute';
+} from '../../../actions/transmute';
 
 export class SelectEventStoreCard extends React.Component<any, any> {
     state = {
@@ -31,7 +31,7 @@ export class SelectEventStoreCard extends React.Component<any, any> {
                         secondary={true}
                         onTouchTap={() => {
                             this.props.dispatch(
-                                createEventStore(this.props.transmute.defaultAddress)
+                                createEventStore(this.props.transmute.lightWalletAddress)
                             );
                         }}
                     />

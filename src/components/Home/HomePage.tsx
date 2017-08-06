@@ -26,7 +26,7 @@ export default class HomePage extends React.Component<any, any> {
                                     secondary={true}
                                     label="Demo"
                                     onTouchTap={() => {
-                                        this.launchDemo('/dapp/healthcare');
+                                        this.launchDemo('/dapp/bioid');
                                     }}
                                 />
                             </div>

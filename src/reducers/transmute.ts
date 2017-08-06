@@ -60,6 +60,15 @@ const handlers = {
       ['patientSummary']: action.payload,
     };
   },
+
+  ['UNSAFE_LIGHT_WALLET_UPDATED']: (state: any, action: any) => {
+    return {
+      ...state,
+      lightWalletMnemonic: action.payload.lightWalletMnemonic,
+      lightWalletAddress: action.payload.lightWalletAddress,
+    };
+  },
+
 };
 
 export const reducer = (state: any, action: any) => {
@@ -71,6 +80,8 @@ export const reducer = (state: any, action: any) => {
     defaultAddress: localStorage.getItem('defaultAddress') || null,
     selectedContract: localStorage.getItem('selectedContract') || null,
     addresses: null,
+    lightWalletMnemonic: localStorage.getItem('lightWalletMnemonic') || '',
+    lightWalletAddress:  localStorage.getItem('lightWalletAddress') || '',
     provider: localStorage.getItem('provider') || 'testrpc',
     ...state
   };

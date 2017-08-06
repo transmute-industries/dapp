@@ -2,7 +2,7 @@ import * as React from 'react';
 import './Healthcare.css';
 import { connect } from 'react-redux';
 import HealthcareAppBar from './HealthcareAppBar/HealthcareAppBar';
-import SelectEventStoreCard from './SelectEventStoreCard/SelectEventStoreCard';
+import SelectEventStoreCard from '../../Common/SelectEventStoreCard/SelectEventStoreCard';
 import PatientEventsTable from './PatientEventsTable/PatientEventsTable';
 import PatientSummaryCard from './PatientSummaryCard/PatientSummaryCard';
 import { Grid, Row, Col } from 'react-flexbox-grid';
