@@ -2,6 +2,7 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
+// http://ti-acs-swarmagents.southcentralus.cloudapp.azure.com:8080
 let bioid_api_base = 'http://example.com';
 
 export const enroll = () => {
