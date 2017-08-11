@@ -30,6 +30,7 @@ export class SelectEventStoreCard extends React.Component<any, any> {
                         label="New Store"
                         secondary={true}
                         onTouchTap={() => {
+                            console.log(this.props.transmute.lightWalletAddress)
                             this.props.dispatch(
                                 createEventStore(this.props.transmute.lightWalletAddress)
                             );
@@ -45,7 +46,7 @@ export class SelectEventStoreCard extends React.Component<any, any> {
                             this.props.dispatch(
                                 updateSelectedContract(
                                     value,
-                                    this.props.transmute.defaultAddress
+                                    this.props.transmute.lightWalletAddress
                                 )
                             );
                         }}

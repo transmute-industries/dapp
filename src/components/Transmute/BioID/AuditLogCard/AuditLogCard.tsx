@@ -66,7 +66,7 @@ export class AuditLogCard extends React.Component<any, any> {
       this.props.dispatch(
         readAllContractEvents(
           nextProps.transmute.selectedContract,
-          this.props.transmute.defaultAddress,
+          this.props.transmute.lightWalletAddress,
           0)
       );
     }
@@ -160,7 +160,7 @@ export class AuditLogCard extends React.Component<any, any> {
     this.props.dispatch(
       readAllContractEvents(
         this.props.transmute.selectedContract,
-        this.props.transmute.defaultAddress,
+        this.props.transmute.lightWalletAddress,
         0)
     );
   }

@@ -19,6 +19,8 @@ let localStorage: any = window.localStorage || (function () {
   };
 })();
 
+import TransmuteFramework from '../transmute'
+
 const handlers = {
 
   ['TRANSMUTE_WEB3_ACCOUNTS_RECEIVED']: (state: any, action: any) => {
@@ -62,6 +64,9 @@ const handlers = {
   },
 
   ['UNSAFE_LIGHT_WALLET_UPDATED']: (state: any, action: any) => {
+    let cfg = TransmuteFramework.config;
+    cfg.wallet = TransmuteFramework.Toolbox.getWalletFromMnemonic(action.payload.lightWalletMnemonic);
+    TransmuteFramework.init(cfg);
     return {
       ...state,
       lightWalletMnemonic: action.payload.lightWalletMnemonic,
